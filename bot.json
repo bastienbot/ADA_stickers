@@ -1,0 +1,83 @@
+{
+  "id": "759ed6f9-dc10-4bd3-b4c6-2ebd64ff7f03",
+  "name": "ADA_stickers",
+  "description": "Générez des stickers avec ce super chatbot!",
+  "default_flow": "Workshop",
+  "flows": [
+    {
+      "name": "dependencies",
+      "commands": []
+    },
+    {
+      "name": "Workshop",
+      "description": "Le flow du workshop",
+      "commands": []
+    }
+  ],
+  "files": [
+    {
+      "name": "1.png",
+      "description": null
+    },
+    {
+      "name": "10.png",
+      "description": null
+    },
+    {
+      "name": "11.png",
+      "description": null
+    },
+    {
+      "name": "12.png",
+      "description": null
+    },
+    {
+      "name": "2.png",
+      "description": null
+    },
+    {
+      "name": "3.png",
+      "description": null
+    },
+    {
+      "name": "4.png",
+      "description": null
+    },
+    {
+      "name": "5.png",
+      "description": null
+    },
+    {
+      "name": "6.png",
+      "description": null
+    },
+    {
+      "name": "7.png",
+      "description": null
+    },
+    {
+      "name": "8.png",
+      "description": null
+    },
+    {
+      "name": "9.png",
+      "description": null
+    }
+  ],
+  "functions": [],
+  "apps": [
+    {
+      "name": "picture_frame",
+      "description": "Add any custom frame to a picture!\n\nTo use this app, you only need a base image and a custom frame you want to overlay on top of the image.\nThe image and the frame, which must be publicly accessible, will be squared and resized to 1200px.\n\nThis app returns the URL to the framed image.\n",
+      "args": [
+        "base_url=\"\"",
+        "frame_url=\"\""
+      ],
+      "runtime": "nodejs12.x",
+      "handler": "index.handler",
+      "environment": {},
+      "app_id": "28382486-0e1a-44a0-ab95-540e11a0b6e1",
+      "version": "1.0.0"
+    }
+  ]
+}

@@ -1,0 +1,145 @@
+
+// Ceci est un commentaire, ils commencent tous par //
+// Le CSML ignore les commentaires, ils sont utiles pour les développeurs :3
+
+// Un chatbot commence toujours par l'étape "start" ci-dessous
+start:
+  if (!images) goto flow dependencies // On ignore cette ligne, on l'expliquera à la fin aux curieux.ses
+  // On va saluer l'utilisateur avec la commande `say`
+  say "Salut!"
+  say Typing(3000)
+  say "Je suis Stickerobot, je produis des motifs de sticker sur demande 🤙"
+  // On peut poser une question à l'utilisateur et donner des choix de boutons
+  say Question("Tu es prêt.e ?",
+    buttons=[
+      // Vous remarquerez qu'on utilise le mot clé "as", il permet au csml de se souvenir de ce bouton
+      // pour s'en servir plus tard (dans le if)
+      Button("Oui let's gooo! 🔥") as btnOui,
+      Button("Pas tout à fait 😕") as btnNon
+    ])
+  // "hold" indique au chatbot qu'il doit attendre une réponse de l'utilisateur (une phrase ou un click)
+	hold
+  // La réponse de l'utilisateur va arriver dans la variable `event`
+  // Dans le cas présent on va voir ce que contient cette variable en demandant au csml si event "match" le bouton Oui
+  if (event match btnOui) {
+    say "Super allons-y!"
+  } else {
+    say "Pas de soucis, je me tiens à ta disposition!"
+    goto end
+  }
+  
+// ############################################################
+// À toi de jouer maintenant, il va falloir remplir les trous !
+// ############################################################
+// Exercice 0 : Efface la ligne ci-dessous pour commencer le workshop
+  goto end /*
+
+
+
+
+  goto age
+
+age:
+  // 1 - Ecris la question que le chatbot va poser
+  // Indice : regarde les réponses pour déduire quelle est la question 😉
+  say Question("????",
+    buttons=[
+      Button("Moins de 25 ans") as btn25,
+      Button("Entre 25 et 35 ans") as btn2535,
+      Button("Plus de 35 ans") as btn35
+    ])
+  hold
+  if (event match btn25) {
+    // 2 - Nous voulons donner l'ordre au chatbot de se souvenir des valeurs 1, 2 ou 3
+    // selon sur quel bouton a cliqué l'utilisateur
+    ???? age = 1
+  } else if (event match btn2535) {
+    ???? age = 2
+  } else if (event match btn35) {
+    ???? age = 3
+  } else {
+    say "Je comprendrai beaucoup mieux si tu cliques sur un des boutons 😉"
+    goto age
+  }
+  // 3 - Indique au chatbot qu'il se rendre à l'étape `xp`
+  ???? xp
+
+xp:
+  // 4 - Il manque quelques mots clés ci-dessous...
+  say ????("As-tu déjà codé ?",
+    buttons=[
+      ????("Jamais") as btnjamais,
+      ????("Un peu") as btnunpeu,
+      ????("J'adore ça") as btnjadore
+    ])
+  // 5 - Indique au chatbot qu'il faut qu'il attende la réponse de l'utilisateur
+  ????
+  // 6 - Il manque le mot clé de condition
+  ???? (event match btnjamais) {
+    remember xp = 1
+  } else ???? (event match btnunpeu) {
+    remember xp = 2
+  } else ???? (event match btnjadore) {
+    remember xp = 3
+  } else {
+    say "Je comprendrai beaucoup mieux si tu cliques sur un des boutons 😉"
+  }
+  goto futur
+
+// 7 - Il manque le nom du step, quel est-il à ton avis 🤔
+????:
+  // 8 - Il manque le mot clé pour poser une question!
+  ???? Question("Si tu étais développeur·se, tu préférerais...",
+    buttons=[
+      // 9 - Il faut que le chatbot se souvienne des 3 boutons
+      Button("Travailler dans la cybersécurité") ???? btnsecu,
+      Button("Faire des jeux vidéos") ???? btnjv,
+      Button("Coder des sites web et des applications") ???? btnsite
+    ])
+  hold
+  // 10 - Dernière étape : on doit mettre 1 dans la variable `futur` si l'utilisateur a choisi la secu
+  // la valeur 2 si son choix est les JV, et 3 pour les sites
+  if (???? ???? ????) {
+    remember futur = 1
+  } else if (???? ???? ????) {
+    remember futur = 2
+  } else if (???? ???? ????) {
+    remember futur = 3
+  } else {
+    say "Je comprendrai beaucoup mieux si tu cliques sur un des boutons 😉"
+  }
+  goto sticker
+
+sticker:
+  say "Et voilà!! 🎁"
+  if (age == 1) {
+    if (xp == 1) do background = images.i1
+    if (xp == 2) do background = images.i2
+    if (xp == 3) do background = images.i3
+  } else if (age == 2) {
+    if (xp == 1) do background = images.i4
+    if (xp == 2) do background = images.i5
+    if (xp == 3) do background = images.i6
+  } else{
+    if (xp == 1) do background = images.i7
+    if (xp == 2) do background = images.i8
+    if (xp == 3) do background = images.i9
+  }
+  if (futur == 1) do content = images.i10
+  else if (futur == 1) do content = images.i11
+  else do content = images.i12
+  do framed = Fn(
+    "picture_frame",
+    base_url=background,
+    frame_url=content
+  )
+  say Image(framed.result)
+  say Typing(2500)
+  say Question(
+    "Reviens me voir pour avoir de nouveaux stickers ! A bientôt 👋",
+    button_type="quick_reply",
+    buttons=[Button("Recommencer")]
+  )
+  hold
+  if (event == "Recommencer") goto age
+  goto end

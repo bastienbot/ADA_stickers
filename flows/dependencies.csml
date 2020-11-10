@@ -1,0 +1,16 @@
+start:
+  remember images = {
+    "i1": "https://cdn.csml.dev/customers/4140eea8-4825-4df6-981d-c1ee239884bc/files/2ee23e3b-e773-47ae-9d39-64b9a9b6eb0d/1.png",
+    "i2": "https://cdn.csml.dev/customers/4140eea8-4825-4df6-981d-c1ee239884bc/files/7712e4e2-3466-43ad-8005-5204c22df4b3/2.png",
+    "i3": "https://cdn.csml.dev/customers/4140eea8-4825-4df6-981d-c1ee239884bc/files/a44f27b6-595a-495b-88b7-e5615d598d03/3.png",
+    "i4": "https://cdn.csml.dev/customers/4140eea8-4825-4df6-981d-c1ee239884bc/files/6959e0b5-abff-4488-888d-a106d1c79f85/4.png",
+    "i5": "https://cdn.csml.dev/customers/4140eea8-4825-4df6-981d-c1ee239884bc/files/eab57955-10b3-4aa8-96b7-0ba9d32e9993/5.png",
+    "i6": "https://cdn.csml.dev/customers/4140eea8-4825-4df6-981d-c1ee239884bc/files/55b765db-54e9-40a2-83e4-dffae3c40341/6.png",
+    "i7": "https://cdn.csml.dev/customers/4140eea8-4825-4df6-981d-c1ee239884bc/files/5a8f1abf-57a2-4542-8e89-a4faa733cef4/7.png",
+    "i8": "https://cdn.csml.dev/customers/4140eea8-4825-4df6-981d-c1ee239884bc/files/7c1dabdd-5da3-4bbe-bd4c-479d246e369e/8.png",
+    "i9": "https://cdn.csml.dev/customers/4140eea8-4825-4df6-981d-c1ee239884bc/files/13c666a8-28c1-454b-b35f-96be296421bb/9.png",
+    "i10": "https://cdn.csml.dev/customers/4140eea8-4825-4df6-981d-c1ee239884bc/files/ef82e513-8d8b-4dac-9238-9a3a0de850da/10.png",
+    "i11": "https://cdn.csml.dev/customers/4140eea8-4825-4df6-981d-c1ee239884bc/files/a2e84843-bf52-46c2-abfe-402138e179d2/11.png",
+    "i12": "https://cdn.csml.dev/customers/4140eea8-4825-4df6-981d-c1ee239884bc/files/9470dcd9-b8fd-42ff-8143-33e2682e83a7/12.png"
+  }
+  goto flow Workshop
